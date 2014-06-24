@@ -1,0 +1,22 @@
+{
+  "name": "angular-starter",
+  "version": "1.0.0",
+  "description": "A starter application for angularjs projects",
+  "homepage": "https://github.com/naikus",
+  "author": "https://github.com/naikus",
+  "repository": "https://github.com/naikus/angularjs-starter.git",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.5.5",
+    "gulp-jshint": "^1.5.0",
+    "gulp-less": "^1.2.2",
+    "gulp-concat": "^2.1.7",
+    "gulp-clean": "^0.2.4",
+    "gulp-uglify": "^0.2.1",
+    "gulp-watch": "^0.5.0",
+    "q": "^1.0.0",
+    "gulp-connect": "^2.0.5"
+  }
+}

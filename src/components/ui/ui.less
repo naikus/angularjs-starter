@@ -1,0 +1,58 @@
+.messages {
+   position: fixed;
+   top: 70px;
+   left: 0;
+   right: 0;
+   width: 100%;
+   z-index: 9;
+}
+
+.message {
+   padding: 10px;
+   font-size: 0.9em;
+   
+   &.info, &.success, &.warn, &.error {
+      color: #fff;
+   }
+   
+   a {
+      color: #fff;
+      font-weight: bold;
+   }
+   
+   &.info {
+      background-color: @info-color;
+   }
+   &.success {
+      background-color: @success-color;
+   }
+   &.warn {
+      background-color: @warn-color;
+   }
+   &.error {
+      background-color: @error-color;
+   }
+}
+
+.video-wrapper {
+   position: relative;
+   min-height: 300px;
+   
+   > .video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+   }
+}
+
+
+
+@media only screen and (min-width: 768px) {
+   .messages {
+      right: 0;
+      top: 150px;
+      left: auto;
+      width: 300px;
+      border-radius: 3px 0 0 3px;
+   }
+}

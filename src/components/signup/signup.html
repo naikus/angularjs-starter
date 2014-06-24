@@ -1,0 +1,110 @@
+<div class="row view signin">
+   <div class="container pad content">
+      <div class="col span_4 pad-extra">
+         
+         <form name="SForm" class="panel pad alt overflow" ng-controller="SignIn" novalidate>
+            <div class="header">Sign In</div>
+
+            <div class="col span_12 pad-t">
+               <div data-appui-vmsg data-field="email"
+                     data-required="Email address is required"
+                     data-email="Email address is not valid"></div>
+               
+               <input name="email" ng-model="user.userEmail" type="email" 
+                     placeholder="Email" autocomplete="off"
+                     required />
+            </div>
+            <div class="col span_12">
+               <div data-appui-vmsg data-field="password"
+                     data-required="Email address is required"></div>
+               <input name="password" ng-model="user.password" type="password" 
+                     placeholder="Password" autocomplete="off"
+                     required />
+            </div>
+            <div class="col pad-t">
+               <button class="primary" ng-click="signIn()" ng-disabled="!SForm.$valid">
+                  <i class="fa fa-unlock"></i> Sign In
+               </button>
+            </div>
+         </form>
+
+         <div class="panel pad" ng-controller="FBSignUp">
+            <div class="header">
+               Social Sign In
+            </div>
+            <p class="para pad-v">
+               Sign In with your facebook account
+            </p>
+
+            <button class="button facebook" ng-click="fbSignIn()">
+               <i class="fa fa-facebook"> </i>
+               Sign in with Facebook
+            </button>
+         </div>
+
+      </div>
+
+      <div class="col span_8 pad-extra">
+         <form name="SignUpForm" class="panel pad" ng-controller="SignUp" novalidate>
+            <div class="header">
+               Don't have an account? Sign up!
+            </div>
+
+            <div class="row pad-t">
+               <div class="col span_4 pad">
+                  <img class="profile-pic" src="" ng-src="{{user.userImageUrl}}" alt="Profile Image" />
+               </div>
+               <div class="col span_8 pad">
+                  <label>Profile Image</label>
+                  <input name="userImageUrl" ng-model="user.userImageUrl" type="text" 
+                         placeholder="e.g. http://imgur.com/saasda.jpg" />
+                  
+                  <label>Full Name</label>
+                  
+                  <div data-appui-vmsg data-field="userFirstName"
+                        data-required="First name is required"></div>
+                  <div data-appui-vmsg data-field="userLastName"
+                        data-required="Last name is required"></div>
+                  <input name="userFirstName" ng-model="user.userFirstName" 
+                        type="text" placeholder="First" required/>
+                  <input name="userLastName" ng-model="user.userLastName" 
+                        type="text" placeholder="Last" required />
+               </div>
+            </div>
+
+            <div class="row pad-h">
+               <label>Email Address</label>
+               <div data-appui-vmsg data-field="userEmail"
+                     data-required="Email address is required"
+                     data-email="Email address is not valid"></div>
+               <input name="userEmail" ng-model="user.userEmail" type="email" 
+                     placeholder="e.g. johndoe@example.com" autocomplete="off" required />
+            </div>
+
+            <div class="row pad-h">
+               <label class="pad-t">Password</label>
+               <div data-appui-vmsg data-field="password"
+                     data-required="Password is required"></div>
+               <div class="col span_6">
+                  <input name="password" ng-model="user.password" type="password" 
+                        placeholder="Password" autocomplete="off" ng-if="!showPass" required/>
+                  <input name="password" type="text" ng-model="user.password" 
+                        placeholder="Password" autocomplete="off" ng-if="showPass == true" required/>
+               </div>
+               <div class="col span_6 pad-h">
+                  <label>
+                     <input class="inline" type="checkbox" ng-click="showPass = ! showPass" />
+                     <span class="inline-box">Show password</span>
+                  </label>
+               </div>
+            </div>
+
+            <div class="pad-v text-right">
+               <button class="primary inline" ng-click="signUp()" ng-disabled="!SignUpForm.$valid">
+                  <i class="fa fa-check"></i> Sign Up
+               </button>
+            </div>
+         </form>
+      </div>
+   </div>   
+</div>

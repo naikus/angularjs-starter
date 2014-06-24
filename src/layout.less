@@ -1,0 +1,29 @@
+#workspace {
+   > .header {
+         height: 70px;
+         border-bottom: 1px solid darken(@alt-bg-color, 5%);
+         // background-color: darken(@bg-color, 7%);
+         position: fixed;
+         width: 100%;
+         top: 0;
+         z-index: 1;
+         overflow: hidden;
+
+         > .logo {
+            padding: 23px 5px 23px 10px;
+            display: inline-box;
+
+            > .text {
+               font-family: "Arial Black";
+               font-weight: bold;
+            }
+         }
+   }
+   
+   > .view-container {
+         padding-top: 70px;
+   }
+}
+
+@media only screen and (min-width: 768px) {
+}

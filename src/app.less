@@ -1,0 +1,629 @@
+@bg-color: #f0f0f0;
+@text-color: darken(#6D655E, 10%);
+@active-bg-color: #22B1E5;
+@active-text-color: #fff;
+@selected-bg-color: @active-bg-color; //#22B1E5; //#5696C3;
+@selected-text-color: #fff;
+@alt-bg-color: #35312E;
+@alt-text-color: #fefefe;
+
+@primary-color: #EF5D24; // #F71875; //magenta red
+
+
+@alert-color: #9E5B5A;
+@error-color: #D66B55;
+@success-color: #83B520;
+@warn-color: #F79204;
+@info-color: #6AADC9;
+@invalid-color: #9B2D2D;
+
+
+@pad-default: 10px;
+
+// @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic,800,600);
+
+
+html, body {
+   font-family: "Open Sans", "Helvetica Neue", Helvetica, sans;
+   font-size: 0.95em;
+   background-color: @bg-color;
+   color: lighten(@text-color, 5%);
+   padding: 0;
+   margin: 0;
+}
+
+// box sizing
+article, section, aside, div, img, p, ul, li, h1, h2, h3, h4, h5, h6, .box, .inline-box, input, 
+      textarea, select {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+code {
+   font-family: monospace;
+}
+
+h1 {
+   font-size: 3em;
+   font-weight: bold;
+}
+h2 {
+   font-size: 2em;
+   font-weight: bold;
+}
+h3 {
+   font-size: 1.6em;
+   font-weight: bold;
+}
+
+strong {
+   font-weight: bold;
+}
+
+a.box {
+   text-decoration: none;
+   color: @text-color;
+}
+
+
+// boxes
+.box {
+   display: block;
+   overflow: auto;
+}
+.inline-box {
+   display: inline-block;
+   overflow: auto;
+}
+.left {
+   float: left !important;
+}
+.right {
+   float: right !important;
+}
+.text-left {
+   text-align: left;
+}
+.text-right {
+   text-align: right;
+}
+.text-center {
+   text-align: center;
+}
+.no-select {
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
+}
+.pad {
+   padding: @pad-default;
+}
+.pad-v {
+   padding-top: @pad-default;
+   padding-bottom: @pad-default;
+}
+.pad-h {
+   padding-left: @pad-default;
+   padding-right: @pad-default;
+}
+.pad-t {
+   padding-top: @pad-default;
+}
+.pad-b {
+   padding-bottom: @pad-default;
+}
+.pad-l {
+   padding-left: @pad-default;
+}
+.pad-r {
+   padding-right: @pad-default;
+}
+.pad-extra {
+   padding: @pad-default + 5;
+}
+.overflow {
+   overflow: auto;
+}
+.alt-bg {
+   background-color: @alt-bg-color;
+   color: @alt-text-color;
+}
+
+
+.appear.ng-enter {
+    opacity: 0;
+    
+    -moz-transition: opacity 300ms ease;
+    -webkit-transition: opacity 300ms ease;
+    -o-transition: opacity 300ms ease;
+    transition: opacity 300ms ease;
+}
+.appear.ng-leave {
+   -moz-transition: none;
+   -webkit-transition: none;
+   -o-transition: none;
+   transition: none;
+}
+.appear.ng-enter-active {
+   opacity: 1;    
+}
+
+
+.trigger {
+   cursor: pointer;
+}
+
+// lists
+ul {
+   margin: 0;
+}
+ul > li {
+   overflow: auto;
+}
+ul.horizontal, ul.list {
+   overflow: auto;
+   list-style-type: none;
+}
+ul.horizontal > li {
+   float: left;
+}
+ul.list {
+   &.bordered {
+      > li {
+         border-bottom: 1px solid darken(@bg-color, 3%);
+         
+         &:last-child {
+            border-bottom: none;
+         }
+      }
+   }
+
+   > li {
+      // border-bottom: 1px solid darken(@bg-color, 10%);
+
+      img.thumb {
+         width: 100%;
+         display: block;
+      }
+
+      .desc {
+         > .title {
+            font-weight: bold;
+         }
+      }
+   }
+}
+
+
+
+// forms 
+input,
+      button,
+      select,
+      textarea,
+      .field,
+      .button {
+   text-decoration: none;
+   padding: 9px;
+   font-size: 1em;
+   border: 1px solid darken(@bg-color, 15%);
+   border-radius: 3px;
+   display: block;
+   position: relative;
+   width: 100%;
+   margin-bottom: 12px;
+   background-color: #fff;
+   color: @text-color;
+   
+   &::-moz-focus-inner {
+      outline: 0;
+      border: 0;
+   }
+   
+   &:focus {
+      border: 1px solid lighten(@active-bg-color, 10%);
+      box-shadow: 0 0 2px lighten(@active-bg-color, 10%);
+      outline: 0;
+   }
+   
+   &[disabled] {
+      background-color: darken(@bg-color, 10%) !important;
+   }
+   
+   &.ng-dirty.ng-invalid {
+      box-shadow: none;
+      border: 1px solid darken(@bg-color, 15%);
+      box-shadow: none;
+      border-left: 3px solid @error-color;
+   }
+}
+
+input[type=checkbox], input[type=radio] {
+   display: inline-block;
+   width: auto;
+   margin: 0;
+   margin-bottom: 12px;
+}
+
+.input-file {
+   position: relative;
+   display: block;
+   
+   input[type=file] {
+      opacity: 0;
+      border: 0;
+      //position: absolute;
+      width: 100%;
+      margin: 0;
+      z-index: 1;
+      filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+      
+      &:focus {
+         border: 0;
+         box-shadow: none;
+      }
+   }
+   
+   > .button, > input[type=button], > button {
+      padding: 15px;
+      
+      > .fa {
+         font-size: 1.3em;
+      }
+   }
+   
+   &:active {
+      > .button, > input[type=button], > button {
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) inset;
+      }
+   }
+   &:focus {
+      outline: 0;
+      
+      > .button, > input[type=button], > button {
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            
+      }
+   }
+   
+   > .button, > input[type=button], > button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+   }
+}
+
+textarea {
+   min-height: 100px;
+}
+label {
+   display: block;
+   padding: 3px 0;
+}
+.form, form {
+   .para {
+      font-size: 0.95em;
+   }
+   
+   label {
+      font-weight: bold;
+      > .hint {
+         font-weight: normal;
+      }
+   }
+   
+   .hint {
+      display: inline-block;
+      padding: 3px 0;
+   }
+}
+.text-small {
+   font-size: 0.9em;
+}
+.text-x-small, .hint {
+   font-size: 0.85em;
+}
+.hint {
+   color: lighten(@text-color, 15%);
+}
+.text-large {
+   font-size: 1.1em;
+}
+.text-x-large {
+   font-size: 1.5em;
+}
+.label {
+   padding: 3px 5px;
+   border-radius: 3px;
+   border: 1px solid rgba(0,0,0,0.1);
+   
+   &.normal {
+         background-color: darken(@bg-color, 10%);
+   }
+}
+.alt-bg .label {
+   background-color: lighten(@alt-bg-color, 10%);
+}
+
+
+.hidden {
+   display: none !important;
+}
+
+
+.button, input[type=button], button, input[type=reset], input[type=submit] {
+   background-color: darken(@bg-color, 20%);
+   border: 1px solid rgba(0,0,0,0.1);
+   border-radius: 2px;
+   cursor: pointer;
+   text-align: center;
+   
+   > .fa {
+      font-size: 1.1em;
+      margin-right: 5px;
+   }
+   
+   &:hover {
+      background-color: @alt-bg-color;
+      color: @alt-text-color;
+   }
+   &.error:hover {
+      background-color: darken(@error-color, 5%);
+   }
+   &:focus {
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      outline: 0;
+   }
+   &:active {
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) inset;
+      // padding: 10px 8px 8px 10px;
+   }
+   
+   &.primary {
+      background-color: @primary-color;
+      color: @selected-text-color;
+   }
+   &.primary:hover {
+      background-color: darken(@primary-color, 5%);
+   }
+   &.primary:focus {
+      box-shadow: 0 0 2px lighten(@primary-color, 10%);
+      outline: none;
+   }
+   &.primary:active {
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset;
+   }
+   
+   &[disabled], &[disabled]:hover, &[disabled]:active {
+      box-shadow: none !important;
+      border: 1px solid rgba(0,0,0,0.1) !important;
+      color: lighten(@text-color, 35%) !important;
+      padding: 10px !important;
+   }
+}
+
+
+.info, .error, .warn, .success {
+   color: #fff;
+   // border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.info {
+   background-color: @info-color;
+}
+.error {
+   background-color: @error-color;
+}
+
+.v-messages {
+   > .msg {
+      color: @error-color;
+      padding: 2px 0;
+      display: inline-block;
+      font-size: 0.85em;
+   }
+}
+
+.invalid {
+   color: @error-color;
+}
+
+
+p.info {
+   background-color: lighten(desaturate(@info-color, 15%), 30%);
+   color: @text-color;
+   
+   .fa {
+      color: @primary-color;
+   }
+}
+
+
+.selected {
+   background-color: @selected-bg-color;
+   color: @selected-text-color;
+}
+
+
+
+
+
+.view {
+   > .actionbar {
+      background-color: lighten(@alt-bg-color, 3%);
+      overflow: auto;
+      position: fixed;
+      width: 100%;
+      // background: #444;
+      // color: #fff;
+      z-index: 1;
+      border-top: 1px solid lighten(@alt-bg-color, 7%);
+      color: darken(@alt-text-color, 15%);
+
+      > .action {
+         display: block;
+         cursor: pointer;
+         padding: 12px;
+         font-size: 1.2em;
+         // border-right: 1px solid darken(@bg-color, 15%);
+         text-decoration: none;
+         color: darken(@alt-text-color, 15%);
+         
+         &:hover {
+            background-color: @active-bg-color;
+            color: @active-text-color;
+         }
+
+         &:active {
+            box-shadow: 0 0 3px lighten(@active-bg-color, 10%);
+         }
+         
+         &.danger {
+            color: @error-color;
+            
+            &:hover {
+               background-color: @error-color;
+               color: #fff;
+            }
+            &:active {
+               box-shadow: 0 0 3px lighten(@error-color, 10%);
+            }
+         }
+      }
+      
+      > .title {
+            font-weight: bold;
+            padding: 12px 10px 8px;
+            // color: lighten(@text-color, 15%);
+      }
+   }
+   
+   .content {
+      padding-top: 42px;
+   }
+   /*.actionbar + .content {
+      padding-top: 42px;
+   }*/
+}
+
+section {
+   margin-bottom: 20px;
+   
+   > header {
+      font-size: 1.1em;
+      border-bottom: 1px solid @active-bg-color;
+      padding: 10px;
+   }
+   
+   &.alt {
+      background-color: darken(@bg-color, 3%);
+      border-radius: 2px;
+      border: 1px solid darken(@bg-color, 6%);
+   }
+}
+
+.panel {
+   background: lighten(@bg-color, 4%);
+   margin-bottom: 20px;
+   border-radius: 3px;
+   border: 1px solid darken(@bg-color, 6%);
+   box-shadow: 0 0 3px darken(@bg-color, 4%);
+   
+   &.plain {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+   }
+   
+   > header, > .header {
+      font-size: 1.1em;
+      font-weight: bold;
+      border-bottom: 2px solid @selected-bg-color;
+      padding: 10px;
+      margin-bottom: 10px;
+      // border-radius: 3px;
+   }
+   
+   &.alt {
+      background-color: darken(@bg-color, 3%);
+      border-radius: 2px;
+      border: 1px solid darken(@bg-color, 6%);
+   }
+}
+
+
+#workspace > .header {
+   .profile-pic {
+      border-radius: 50px;
+      width: 47px;
+      height: 47px;
+      display: inline-block;
+   }
+   
+   .logo > a {
+      text-decoration: none;
+      color: @text-color;
+   }
+}
+.welcome {
+   font-size: 0.95em;
+}
+
+@import "layout.less";
+
+@import "components/ui/ui.less";
+@import "components/signup/signup.less";
+
+
+
+
+@media only screen and (min-width: 700px) {
+   input, button, select, textarea, .button, .field {
+      &.inline {
+         width: auto;
+         display: inline-block;
+      }
+      &.medium {
+         display: inline-block;
+         width: 230px;
+      }
+      &.small {
+         display: inline-block;
+         width: 150px;
+      }
+      &.x-small {
+         display: inline-block;
+         width: 50px; 
+      }
+   }
+   
+   .button-bar .inline {
+      margin: 2px 10px;
+   }
+   
+   .input-file.inline {
+      display: inline;
+   }
+   
+   /*
+   .field-group {
+      
+      > .field {
+         padding: 0 10px;
+         
+         &.first {
+            padding-left: 0;
+         }
+         &.last {
+            padding-right: 0;
+         }
+      }
+   }
+   */
+}
