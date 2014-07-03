@@ -1,5 +1,5 @@
 (function(angular, window, undefined) {
-   var signup = angular.module("signup", ["api", "facebook"]);
+   var signup = angular.module("signup", ["api"/*, "facebook"*/]);
    
    signup.config(["$routeProvider", function($routeProvider) {
       $routeProvider.when("/signup", {
@@ -8,12 +8,14 @@
    }]);
 
    // configure facebook provider (name sould be provide service + "Provider"
+   // Uncomment if you want facebook integration
+   /*
    signup.config(["FBProvider", function(FBProvider) {
       FBProvider.settings({
          appId: "<Your App ID>"
       });
    }]);
-
+   */
 
    signup.controller("SignIn", ["$scope", "$location", "Api", function($scope, $location, Api) {
       $scope.user = {};
@@ -47,6 +49,8 @@
    }]);
 
 
+   // Uncomment if you want facebook integration
+   /*
    signup.controller("FBSignUp", ["$scope", "$location", "Api", "FB", function($scope, $location, Api, FB) {
          
       function handleLogin(res) {
@@ -96,5 +100,6 @@
       };
       
    }]);
-
+   */
+  
 })(angular, window);

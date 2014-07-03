@@ -1,13 +1,13 @@
 @bg-color: #f0f0f0;
-@text-color: darken(#6D655E, 10%);
-@active-bg-color: #22B1E5;
+@text-color: darken(#6D655E, 5%);
+@active-bg-color: #BA6868;
 @active-text-color: #fff;
-@selected-bg-color: @active-bg-color; //#22B1E5; //#5696C3;
+@selected-bg-color: #A53E3E; //#22B1E5; //#5696C3;
 @selected-text-color: #fff;
 @alt-bg-color: #35312E;
 @alt-text-color: #fefefe;
 
-@primary-color: #EF5D24; // #F71875; //magenta red
+@primary-color: #BC3273; // #F71875; //magenta reds
 
 
 @alert-color: #9E5B5A;
@@ -222,8 +222,8 @@ input,
    }
    
    &:focus {
-      border: 1px solid lighten(@active-bg-color, 10%);
-      box-shadow: 0 0 2px lighten(@active-bg-color, 10%);
+      border: 1px solid darken(@bg-color, 20%);
+      box-shadow: 0 0 2px darken(@bg-color, 20%);
       outline: 0;
    }
    
@@ -304,6 +304,20 @@ label {
    display: block;
    padding: 3px 0;
 }
+
+.cb {
+    > input[type=checkbox], .cb > input[type=radio] {
+        margin: 4px 5px;
+        float: left;
+    }
+    
+    > span {
+        margin: 2px;
+        display: inline-block;
+    }
+}
+
+
 .form, form {
    .para {
       font-size: 0.95em;
@@ -358,7 +372,6 @@ label {
 .button, input[type=button], button, input[type=reset], input[type=submit] {
    background-color: darken(@bg-color, 20%);
    border: 1px solid rgba(0,0,0,0.1);
-   border-radius: 2px;
    cursor: pointer;
    text-align: center;
    

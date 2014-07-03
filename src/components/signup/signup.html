@@ -16,7 +16,7 @@
             </div>
             <div class="col span_12">
                <div data-appui-vmsg data-field="password"
-                     data-required="Email address is required"></div>
+                     data-required="Password is required"></div>
                <input name="password" ng-model="user.password" type="password" 
                      placeholder="Password" autocomplete="off"
                      required />
@@ -28,6 +28,14 @@
             </div>
          </form>
 
+         <!-- 
+            Uncomment for facebook integration. With this also uncomment the following
+            index.html:
+                facebook related scripts
+            components/signup/sign.js:
+                facebook dependency, facebook provider and FBLogin controller
+         -->
+         <!--
          <div class="panel pad" ng-controller="FBSignUp">
             <div class="header">
                Social Sign In
@@ -41,6 +49,7 @@
                Sign in with Facebook
             </button>
          </div>
+         -->
 
       </div>
 
@@ -91,10 +100,10 @@
                   <input name="password" type="text" ng-model="user.password" 
                         placeholder="Password" autocomplete="off" ng-if="showPass == true" required/>
                </div>
-               <div class="col span_6 pad-h">
-                  <label>
+               <div class="col span_6">
+                  <label class="cb pad-v">
                      <input class="inline" type="checkbox" ng-click="showPass = ! showPass" />
-                     <span class="inline-box">Show password</span>
+                     <span>Show password</span>
                   </label>
                </div>
             </div>
